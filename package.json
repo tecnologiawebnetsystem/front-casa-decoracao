@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Sistema ERP completo para decoração, papel de parede e cortinas",
   "private": true,
+  "packageManager": "npm@10.0.0",
   "author": {
     "name": "MS Decor",
     "email": "contato@msdecor.com.br",
