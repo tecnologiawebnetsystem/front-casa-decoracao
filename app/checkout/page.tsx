@@ -139,6 +139,8 @@ export default function CheckoutPage() {
     )
   }
 
+  const CurrentStepIcon = steps[currentStep - 1].icon
+
   return (
     <div className="min-h-screen bg-neutral-50">
       <Header />
@@ -197,7 +199,7 @@ export default function CheckoutPage() {
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  \{steps[currentStep - 1].icon && <steps[currentStep - 1].icon className="h-5 w-5" />}
+                  <CurrentStepIcon className="h-5 w-5" />
                   {steps[currentStep - 1].title}
                 </CardTitle>
               </CardHeader>
@@ -325,7 +327,6 @@ export default function CheckoutPage() {
                             <SelectItem value="RJ">Rio de Janeiro</SelectItem>
                             <SelectItem value="MG">Minas Gerais</SelectItem>
                             <SelectItem value="RS">Rio Grande do Sul</SelectItem>
-                            {/* Adicionar outros estados */}
                           </SelectContent>
                         </Select>
                       </div>
@@ -400,10 +401,6 @@ export default function CheckoutPage() {
                           <Label htmlFor="credit" className="flex-1 cursor-pointer">
                             <div className="flex items-center justify-between">
                               <span>Cartão de Crédito</span>
-                              <div className="flex gap-1">
-                                <img src="/images/visa.png" alt="Visa" className="h-6" />
-                                <img src="/images/mastercard.png" alt="Mastercard" className="h-6" />
-                              </div>
                             </div>
                           </Label>
                         </div>

@@ -105,8 +105,9 @@ export default function AdminFinanceiro() {
       pendente: { label: "Pendente", color: "bg-yellow-100 text-yellow-800", icon: Clock },
       vencido: { label: "Vencido", color: "bg-red-100 text-red-800", icon: AlertCircle },
       cancelado: { label: "Cancelado", color: "bg-gray-100 text-gray-800", icon: XCircle },
-    }
-    return statusMap[status] || statusMap.pendente
+    } as const
+
+    return statusMap[status as keyof typeof statusMap] || statusMap.pendente
   }
 
   const getMethodInfo = (method: string) => {
@@ -117,8 +118,9 @@ export default function AdminFinanceiro() {
       transferencia: { label: "Transferência", icon: Banknote },
       boleto: { label: "Boleto", icon: Receipt },
       dinheiro: { label: "Dinheiro", icon: Banknote },
-    }
-    return methodMap[method] || methodMap.pix
+    } as const
+
+    return methodMap[method as keyof typeof methodMap] || methodMap.pix
   }
 
   const formatCurrency = (value: number) => {

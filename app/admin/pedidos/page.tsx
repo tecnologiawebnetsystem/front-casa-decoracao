@@ -107,8 +107,8 @@ export default function AdminPedidos() {
       installing_today: { label: "Instalação Hoje", color: "bg-orange-100 text-orange-800", icon: Truck },
       completed: { label: "Concluído", color: "bg-green-100 text-green-800", icon: CheckCircle },
       cancelled: { label: "Cancelado", color: "bg-red-100 text-red-800", icon: XCircle },
-    }
-    return statusMap[status] || statusMap.pending
+    } as const
+    return statusMap[status as keyof typeof statusMap] || statusMap.pending
   }
 
   const getPriorityColor = (priority: string) => {
@@ -117,8 +117,8 @@ export default function AdminPedidos() {
       medium: "border-l-yellow-500",
       high: "border-l-orange-500",
       urgent: "border-l-red-500",
-    }
-    return priorityMap[priority] || priorityMap.medium
+    } as const
+    return priorityMap[priority as keyof typeof priorityMap] || priorityMap.medium
   }
 
   const formatCurrency = (value: number) => {
